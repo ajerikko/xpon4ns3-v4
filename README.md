@@ -13,7 +13,7 @@ This module is tested with ns3.41, here's a step-by-step guide to get started wi
 2. Download and copy the xgsponV4 code to the ./src/ folder inside ns-3.41 base folder and rename the top level folder as 'xgpon' in the ./src/ folder (this is because, in the CMakeLists.txt, the parameter 'LIBNAME' is 'xgpon'); if in doubt, the structure of the 'xgpon' folder would look like any other modules in the ./src/ folder in ns-3)
 3. Copy the modified version of ipv4-l3-protcol.cc file in the folder 'changesOnOtherModules' to it's source folder in ns3-41 (cp <xgpon_base_folder>/changesOnOtherModules/src/internet/model/ipv4-l3-protocol_xpon.cc <ns-3.41_base_folder>/src/internet/model/ipv4-l3-protcol.cc)
 4. Configure and build the new code in the xgpon folder from the ns-3.41 base folder (configure with './ns3 confgiure', then build with './ns3 build')
-5. Copy the example script in the '<xpon base Folder>/src/xgpon/example/' folder to the scratch folder (<ns3.41 base folder>/scratch/) and run the script (./ns3 run scratch/<example.cc>). 
+5. Copy the example script in the '<xgpon_base_folder>/src/xgpon/example/' folder to the scratch folder (<ns3.41_base_folder>/scratch/), move into the ns-3.41 base folder, and run the script (./ns3 run scratch/<example.cc>). 
 6. Some parameters can be modified from the terminal, but feel free to dive into the example script to make changes as needed. 
 
 Please remember to cite the following journal in publishing your work:
