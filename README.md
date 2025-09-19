@@ -9,7 +9,7 @@ This XGS-PON module contains significant changes to v3.0 (of the XG-PON module f
 This version of the code is designed in a way that both XGPON and XGSPON can be run by changing a single parameter from the example script itself (with the helper modules and the changes to the model functions taking care of the necessary changes). 
 
 This module is tested with ns3.41, here's a step-by-step guide to get started with the privded example script:
-1. Download and build the base ns-3.41 from here: https://www.nsnam.org/releases/ns-3-41/ (from the ns-3.41 base folder, configure with './ns3 configure', then build with './ns3 build')
+1. Download and build the base ns-3.41 source code from here: https://www.nsnam.org/releases/ns-3-41/ (once downloaded and extracted, move into the ns-3.41 base folder, then configure with './ns3 configure', then build with './ns3 build')
 2. Download and copy the xgsponV4 code to the ./src/ folder inside ns-3.41 base folder and rename the top level folder as 'xgpon' in the ./src/ folder (this is because, in the CMakeLists.txt, the parameter 'LIBNAME' is 'xgpon'); if in doubt, the structure of the 'xgpon' folder would look like any other modules in the ./src/ folder in ns-3)
 3. Copy the modified version of ipv4-l3-protcol.cc file in the folder 'changesOnOtherModules' to it's source folder in ns3-41 (cp <xgpon base folder>/changesOnOtherModules/src/internet/model/ipv4-l3-protocol_xpon.cc <ns3.41 base folder>/src/internet/model/ipv4-l3-protcol.cc)
 4. Configure and build the new code in the xgpon folder from the ns-3.41 base folder (configure with './ns3 confgiure', then build with './ns3 build')
