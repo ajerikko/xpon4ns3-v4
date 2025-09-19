@@ -16,6 +16,9 @@ This module is tested with ns3.41, here's a step-by-step guide to get started wi
 5. Copy the example script in the '<xpon base Folder>/src/xgpon/example/' folder to the scratch folder (<ns3.41 base folder>/scratch/) and run the script (./ns3 run scratch/<example.cc>). 
 6. Some parameters can be modified from the terminal, but feel free to dive into the example script to make changes as needed. 
 
+Please remember to cite the following journal in publishing your work:
+Arokkiam JA, Alvarez P, Wu X, et al. Design, implementation, and evaluation of an XG-PON module for the ns-3 network simulator. SIMULATION. 2017;93(5):409-426. doi:10.1177/0037549716682093 (You can download a pre-print version of it from the university page at: https://cora.ucc.ie/items/bb0363cb-b88c-41bc-9392-c4047577c97b)
+
 You can always reach me on my email if you are stuck or want more guidance in exploring this xg(s)pon module. I maybe slow in responding, as this is not part of my day job. Good luck !!!
   
 
