@@ -1,0 +1,51 @@
+#THESE ARE THE CHANGES ADDED IN XGSPON V4 (to keep up with the versioning from XGSPON v3) FOR THIS MODULE TO BE COMPATIBLE WITH XGSPON (G9807.1Amd2(10/2020))
+
+xgpon-phy.h
+  new US line rate added (XGPON2_US_LINE_RATE = 1244160000)
+  new min guard time added (XGPON2_MINIMUM_GUARD_TIME = 16), in words, equivalent to 512 bits
+  new US FEC data size (XGPON2_US_FEC_DATA_SIZE = 216), in Bytes
+
+xgpon-olt-dba-engine.h
+  limitations of the BWmap are added for XGSPON. These needs to be propagated into the dba engines. 
+  Need to be mindful of the 16-Byte/4-word block in XGSPON vs 4-Byte/1-word block in XGPON
+
+xgpon-burst-profile.h
+  new default preamble value (1280bits = 160bytes) for PSBu added
+  removed the dependence of xgpon module on XgponPsbu altogether (if needed XgponBurstProfile can be used instead)
+
+xgpon-channel.h
+  MAXIMAL_NODES_PER_XGPON = 1021 (instead of 1023 as in XGPON; because of restrictions in ONU-ID) 
+
+xgpon-olt-conn-manager.cc
+  ONU-ID assert messages are updated to reflect the conditions in both XGPON and XGSPON
+  TODO: NEED TO VALIDATE IF THE flexible/speed conn managers are adhering to this new ONU numbers and ONU-ID restrictions
+
+xgpon-helper.cc/h and xgpon-config-db.cc/h
+  changes made to configure the parameters of XGSPON from a single point (when setting the mode in the script)
+
+xgpon-olt-dba-engine.cc/h
+  a new parameter m_baseGrantSize introduced to allow the dynamism between XGPON and XGSPON for the minimum granularity of grant size (4-byte) or (16-byte) 
+
+xgpon-onu-us-scheduler.h/cc
+  a new parameter m_baseGrantSize introduced to allow dynamism between XGPON/XGSPON grant size granularity
+
+xgpon-onu-us-scheduler-round-robine.h/cc
+  a new parameter XGPON2_US_PER_SERVICE_MAX_SIZE is added; this is current set to an arbitary number. TODO: Actual number needs to be figured out
+  the new parameter m_baseGrantSize from the parent object is used within the function SelectConnToServe
+
+xgpon-onu-framing-engine.cc
+  a new parameter m_baseGrantSize is added
+  the new parameter m_baseGrantSize is used inside the function ProduceXgtcUsBurst
+
+xgpon-queue.h
+  a new parameter m_baseGrantSize is added and used inside the function CalculatePacketSize4Scheduling
+xgpon-queue.cc/h
+  all parameter that consider the block sizes as words are converted to uniform block sizes to be compatible with both XGPON and XGSPON using a single number. 
+  CalculatePacketSize4Scheduling performs the required adjustment to convert the block sizes actual bytes.
+
+xgpon-onu-dba-engine.h/cc
+  a new parameter m_baseGrantSize is added and used for getting the bytes from startTime
+
+xgpon-olt-dba-engine.cc
+  the parameter m_baseGrantSize is used to properly calculate offsetSize64 in function GetIndexOfBurstFirstBwAllocation between XGPON and XGSPON 
+
